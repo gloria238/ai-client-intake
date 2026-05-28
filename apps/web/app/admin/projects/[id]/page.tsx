@@ -15,12 +15,7 @@ export default async function ProjectDetailPage({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
-  let project: {
-    raw_input: string
-    parsed_output: AnyParsed | null
-    status: string
-    created_at: string
-  } | null = null
+  let project: Record<string, any> | null = null
   let clarifications: Clarification[] = []
 
   try {
@@ -31,7 +26,7 @@ export default async function ProjectDetailPage({
       .select("*")
       .eq("id", id)
       .single()
-    project = p as typeof project
+    project = p as Record<string, any> | null
 
     const { data: c } = await supabase
       .schema("clientintake")

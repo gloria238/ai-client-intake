@@ -14,7 +14,7 @@ const cspHeader = [
 ].join("; ")
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@ai-delivery/schemas", "@ai-delivery/ai", "@ai-delivery/core", "@ai-delivery/ui"],
+  transpilePackages: ["@ai-delivery/schemas", "@ai-delivery/ai", "@ai-delivery/core"],
   serverExternalPackages: ["openai"],
 
   async headers() {

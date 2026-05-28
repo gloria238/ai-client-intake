@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { IntakeTextarea, SubmitButton } from "@/components/intake"
-import { AnimatedContainer } from "@ai-delivery/ui"
+import { AnimatedContainer } from "@/components/ui/animated-container"
 import { ArrowLeft } from "lucide-react"
 import { toast } from "sonner"
 import Link from "next/link"

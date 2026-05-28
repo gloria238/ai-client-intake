@@ -27,8 +27,7 @@
     "zod": "^4.4.3",
     "@ai-delivery/schemas": "workspace:*",
     "@ai-delivery/ai": "workspace:*",
-    "@ai-delivery/core": "workspace:*",
-    "@ai-delivery/ui": "workspace:*"
+    "@ai-delivery/core": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

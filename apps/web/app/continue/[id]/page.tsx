@@ -3,7 +3,7 @@
 import { useEffect, useState, use } from "react"
 import { useRouter } from "next/navigation"
 import { QuestionCard } from "@/components/clarification"
-import { AnimatedContainer } from "@ai-delivery/ui"
+import { AnimatedContainer } from "@/components/ui/animated-container"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { ArrowRight, ArrowLeft, MessageCircle } from "lucide-react"

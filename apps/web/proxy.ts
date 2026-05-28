@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server"
 
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // Only protect /admin routes
   if (!request.nextUrl.pathname.startsWith("/admin")) {
     return NextResponse.next()

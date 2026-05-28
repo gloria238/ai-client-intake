@@ -1587,6 +1587,13 @@ export const STATUS_LABELS: Record<string, string> = {
   reviewed: "Reviewed", exported: "Exported", contacted: "Contacted",
 }
 
+/** @deprecated Legacy complexity config — retained for backward compat */
+export const COMPLEXITY_CONFIG: Record<string, { label: string; color: string; weeks: string }> = {
+  simple: { label: "Simple", color: "emerald", weeks: "2-4 weeks" },
+  medium: { label: "Medium", color: "amber", weeks: "4-8 weeks" },
+  complex: { label: "Complex", color: "rose", weeks: "8-16 weeks" },
+}
+
 export const MODULE_EMOJI: Record<string, string> = {
   auth: "🔐", payments: "💳", "ai-chat": "🤖", "file-upload": "📤",
   dashboard: "📊", analytics: "📈", "web3-wallet": "👛", "admin-panel": "⚙️",

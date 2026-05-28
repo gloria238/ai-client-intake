@@ -4,12 +4,15 @@ import type { IntakeResult, Project } from "@ai-delivery/schemas"
 
 const SCHEMA = "clientintake"
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function client() {
-  return createClient().schema(SCHEMA)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (createClient() as any).schema(SCHEMA)
 }
 
 function service() {
-  return createServiceClient().schema(SCHEMA)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (createServiceClient() as any).schema(SCHEMA)
 }
 
 export async function createProject(rawInput: string): Promise<string> {
