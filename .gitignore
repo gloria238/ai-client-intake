@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+.next/
+dist/
+build/
+out/
+.turbo/
+
+# Environment files (CRITICAL — contains API keys)
+.env
+.env.local
+.env.*.local
+.env.production
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug
+npm-debug.log*
+pnpm-debug.log*
+
+# Supabase
+supabase/.temp/
+
+# Claude
+.claude/plans/
+.claude/worktrees/
+
+# Python cache
+__pycache__/
