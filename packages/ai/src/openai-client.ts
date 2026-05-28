@@ -2,17 +2,24 @@ import OpenAI from "openai"
 import type { IntakeResult } from "@ai-delivery/schemas"
 import { intakeResultSchema } from "@ai-delivery/schemas"
 
-const openai = new OpenAI({
-  apiKey: process.env.DEEPSEEK_API_KEY,
-  baseURL: process.env.DEEPSEEK_BASE_URL ?? "https://api.deepseek.com",
-})
+let _openai: OpenAI | null = null
+
+function getClient(): OpenAI {
+  if (!_openai) {
+    _openai = new OpenAI({
+      apiKey: process.env.DEEPSEEK_API_KEY,
+      baseURL: process.env.DEEPSEEK_BASE_URL ?? "https://api.deepseek.com",
+    })
+  }
+  return _openai
+}
 
 const MODEL = process.env.AI_MODEL ?? "deepseek-chat"
 
 export async function parseIntake(rawInput: string): Promise<IntakeResult> {
   const { INTAKE_SYSTEM_PROMPT, INTAKE_USER_PROMPT } = await import("./prompts/intake")
 
-  const response = await openai.chat.completions.create({
+  const response = await getClient().chat.completions.create({
     model: MODEL,
     messages: [
       { role: "system", content: INTAKE_SYSTEM_PROMPT },
@@ -62,7 +69,7 @@ export async function parseIntakeWithDesign(
     ? INTAKE_SYSTEM_PROMPT + "\n\n" + designContext
     : INTAKE_SYSTEM_PROMPT
 
-  const response = await openai.chat.completions.create({
+  const response = await getClient().chat.completions.create({
     model: MODEL,
     messages: [
       { role: "system", content: systemPrompt },
@@ -81,5 +88,3 @@ export async function parseIntakeWithDesign(
   const validated = intakeResultSchema.parse(normalized)
   return validated
 }
-
-export { openai }
