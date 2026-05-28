@@ -1,1 +1,1 @@
-export { parseIntake, parseIntakeWithDesign, openai } from "./openai-client"
+export { parseIntake, parseIntakeWithDesign } from "./openai-client"
